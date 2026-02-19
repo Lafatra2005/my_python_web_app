@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "Début du déploiement local..."
 
-          DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
+          export DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
           IMAGE_NAME="my_python_web_app-web"
           TAG="latest"
           FULL_IMAGE="$DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
