@@ -25,9 +25,9 @@ jobs:
         # 4- Deploy locally on the VM (NO SSH)
       - name: Deploy locally on VM
         run: |
-          echo "Début du déploiement locals..."
+          echo "Début du déploiement local..."
 
-          DOCKERHUB_USERNAME= ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
           IMAGE_NAME="my_python_web_app-web"
           TAG="latest"
           FULL_IMAGE="$DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
