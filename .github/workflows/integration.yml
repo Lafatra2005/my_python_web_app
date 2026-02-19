@@ -49,9 +49,11 @@ jobs:
           log_info "Pull de la dernière image..."
           docker pull "$FULL_IMAGE"
 
-          log_info "Arrêt de l'ancien conteneur (si existant)..."
+          log_info "Arrêt et suppression de l'ancien conteneur..."
           docker stop "$CONTAINER_NAME" 2>/dev/null || true
-          docker rm "$CONTAINER_NAME" 2>/dev/null || true
+          docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
+          
+          sleep 2
 
           log_info "Création du réseau Docker (si nécessaire)..."
           docker network create "$NETWORK_NAME" 2>/dev/null || true
